@@ -1,5 +1,4 @@
-<div class="container">
-<h1>Welcome <% current_user.username %> </h1>
+<h1>Welcome <%= current_user.username %> </h1>
 <h2>Current Blog Post</h2>
 <div class="row">
   <% @blog_posts.each do |blog_post| %>
@@ -16,8 +15,10 @@
       </div>
       <div class="panel-footer">
         <%= link_to "Show", blog_post, class:"btn btn-info" %>
+        <% if current_user.id == blog_post.user_id %>
         <%= link_to "Edit", edit_blog_post_path(blog_post), class:"btn btn-warning" %>
         <%= link_to "Destroy", blog_post_path(blog_post), method: :delete, data: {confirm: "Are you sure?"}, class:"btn btn-danger" %>
+        <% end %>
       </div>
     </div>
   </div>
@@ -26,5 +27,3 @@
 
 <%= link_to "New Blog Post", new_blog_post_path, class: "btn btn-success" %>
 <%= paginate @blog_posts%>
-
-</div>

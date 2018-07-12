@@ -1,12 +1,21 @@
 class BlogPostsController < ApplicationController
 
   before_action :set_blog_post, only: [:show, :edit, :update, :destroy]
+  # before_action :correct_user, only: [:edit, :update, :destroy]
+
+  # def correct_user
+  #   @post = Post.find_by(id: params[:id])
+  #   unless current_user?(@post.user)
+  #     redirect_to user_path(current_user)
+  #   end
+  # end
+
+include ApplicationHelper
 
   def index
     @blog_posts = BlogPost.all.page(params[:page]) #Collection of all the instances of BlogPost in our database
 
   end
-
 
   def show
     @comment = Comment.new
@@ -17,6 +26,7 @@ class BlogPostsController < ApplicationController
   end
 
   def edit
+    no_access_visitors(current_user, @blog_post)
   end
 
   def new

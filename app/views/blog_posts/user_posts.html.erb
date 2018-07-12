@@ -10,7 +10,7 @@
             <%= blog_post.blog_entry.html_safe %>
           </p>
             <p>
-              <%= if current_user.id == blog_post.user_id %>
+              <% if current_user.id == blog_post.user_id %>
               	<%= link_to 'Edit', edit_blog_post_path(blog_post), class: "btn btn-warning" %>
                   <%= link_to 'Destroy', blog_post, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
               <% end %>
@@ -18,3 +18,4 @@
       </div>
     </div>
   </div>
+<% end %>

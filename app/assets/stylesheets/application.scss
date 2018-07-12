@@ -10,8 +10,6 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
- *= require_self
  */
 
 @import "bootstrap-sprockets";
@@ -19,12 +17,23 @@
 
 body{
   background-color: #868686;
-  padding: 30px;
+
+
 }
 .container{
   background-color: rgba(255, 255, 255, 0.8);
   margin-top: 20px;
   padding: 20px 50px;
   border-radius: 5px;
-
+}
+.panda {
+  display: inline;
+  float: left;
+  padding-top: 20px;
+  padding-right: 0px;
+}
+.gravlogo {
+display: flex;
+align-items: flex-end;
+justify-content: flex-end;
 }
